@@ -18,7 +18,7 @@
             android:required="false" />
 
         <activity android:name="com.topixoft.glass2048.app.GameActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="sensor"
             android:label="@string/title_activity_game">
 
             <intent-filter>

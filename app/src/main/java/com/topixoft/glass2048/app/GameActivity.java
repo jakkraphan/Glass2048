@@ -2,6 +2,7 @@ package com.topixoft.glass2048.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -195,8 +196,12 @@ public class GameActivity extends Activity {
         squareView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override public void onGlobalLayout() {
                 ViewGroup.LayoutParams layout = squareView.getLayoutParams();
-                //layout.height = squareView.getWidth();
-                layout.width = squareView.getHeight();
+                if (GameActivity.this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    layout.width = squareView.getHeight();
+                } else {
+                    layout.height = squareView.getWidth();
+                    layout.width = layout.height; // Not needed, but helps with the rest of the calculations here
+                }
                 squareView.setLayoutParams(layout);
 
                 int borders = squareView.getPaddingLeft() + squareView.getPaddingRight();

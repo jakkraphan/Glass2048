@@ -11,18 +11,19 @@
     android:background="#faf8ef">
 
     <include
-        android:layout_width="200dp"
-        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
         layout="@layout/game_layout"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
 
     <include
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         layout="@layout/info_layout"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/gameGrid"
-        android:layout_alignBottom="@+id/gameGrid" />
+        android:layout_above="@+id/gameGrid"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
 
 </RelativeLayout>
