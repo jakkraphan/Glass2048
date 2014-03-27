@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">2048</string>
+    <string name="play_a_game">play a game</string>
+
+    <string name="title_activity_game">2048</string>
+
+    <string name="action_new_game">New Game</string>
+    <string name="action_keep_going">Keep going</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_exit_game">Exit Game</string>
+
+</resources>

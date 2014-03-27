@@ -1,0 +1,36 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.topixoft.glass2048.app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_2048" >
+
+        <uses-library
+            android:name="com.google.android.glass"
+            android:required="false" />
+
+        <activity android:name="com.topixoft.glass2048.app.GameActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_game">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/trigger_play_a_game" />
+        </activity>
+
+    </application>
+
+</manifest>

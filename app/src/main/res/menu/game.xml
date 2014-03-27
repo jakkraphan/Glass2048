@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.topixoft.glass2048.app.GameActivity" >
+    
+    <item android:id="@+id/action_new_game"
+        android:title="@string/action_new_game"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_keep_going"
+        android:title="@string/action_keep_going"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_try_again"
+        android:title="@string/action_try_again"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_exit_game"
+        android:title="@string/action_exit_game"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+</menu>

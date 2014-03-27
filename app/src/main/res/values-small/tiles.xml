@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="tile_fontSize">20sp</dimen>
+    <dimen name="tile_128_fontSize">16sp</dimen>
+    <dimen name="tile_256_fontSize">16sp</dimen>
+    <dimen name="tile_512_fontSize">16sp</dimen>
+    <dimen name="tile_1024_fontSize">12sp</dimen>
+    <dimen name="tile_2048_fontSize">12sp</dimen>
+    <dimen name="tile_super_fontSize">10sp</dimen>
+
+</resources>

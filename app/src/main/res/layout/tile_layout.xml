@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/cell_spacing">
+
+    <!--<com.topixoft.glass2048.app.views.AutoResizeTextView-->
+    <!--android:textSize="100sp"-->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/cell_spacing"
+        android:textStyle="bold"
+        android:id="@+id/tile"
+        android:background="@drawable/tile_shape"
+        android:gravity="center" />
+</LinearLayout>

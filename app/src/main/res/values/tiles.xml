@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="tile_color">#776e65</color>
+    <color name="tile_backgroundColor">#eee4da</color>
+    <dimen name="tile_fontSize">11sp</dimen>
+
+    <color name="tile_2_backgroundColor">#eee4da</color>
+    <!--.tile.tile-2 .tile-inner {-->
+    <!--background: #eee4da;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }-->
+
+    <color name="tile_4_backgroundColor">#ede0c8</color>
+    <!--.tile.tile-4 .tile-inner {-->
+    <!--background: #ede0c8;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }-->
+
+    <color name="tile_8_color">#f9f6f2</color>
+    <color name="tile_8_backgroundColor">#f2b179</color>
+    <!--.tile.tile-8 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #f2b179; }-->
+
+    <color name="tile_16_color">#f9f6f2</color>
+    <color name="tile_16_backgroundColor">#f59563</color>
+    <!--.tile.tile-16 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #f59563; }-->
+
+    <color name="tile_32_color">#f9f6f2</color>
+    <color name="tile_32_backgroundColor">#f67c5f</color>
+    <!--.tile.tile-32 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #f67c5f; }-->
+
+    <color name="tile_64_color">#f9f6f2</color>
+    <color name="tile_64_backgroundColor">#f65e3b</color>
+    <!--.tile.tile-64 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #f65e3b; }-->
+
+    <color name="tile_128_color">#f9f6f2</color>
+    <color name="tile_128_backgroundColor">#edcf72</color>
+    <dimen name="tile_128_fontSize">9sp</dimen>
+    <!--.tile.tile-128 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #edcf72;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);-->
+
+    <color name="tile_256_color">#f9f6f2</color>
+    <color name="tile_256_backgroundColor">#edcc61</color>
+    <dimen name="tile_256_fontSize">9sp</dimen>
+    <!--.tile.tile-256 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #edcc61;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);-->
+
+    <color name="tile_512_color">#f9f6f2</color>
+    <color name="tile_512_backgroundColor">#edc850</color>
+    <dimen name="tile_512_fontSize">9sp</dimen>
+    <!--.tile.tile-512 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #edc850;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);-->
+
+    <color name="tile_1024_color">#f9f6f2</color>
+    <color name="tile_1024_backgroundColor">#edc53f</color>
+    <dimen name="tile_1024_fontSize">7sp</dimen>
+    <!--.tile.tile-1024 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #edc53f;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);-->
+
+    <color name="tile_2048_color">#f9f6f2</color>
+    <color name="tile_2048_backgroundColor">#edc22e</color>
+    <dimen name="tile_2048_fontSize">7sp</dimen>
+    <!--.tile.tile-2048 .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #edc22e;-->
+    <!--box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);-->
+
+    <color name="tile_super_color">#f9f6f2</color>
+    <color name="tile_super_backgroundColor">#3c3a32</color>
+    <dimen name="tile_super_fontSize">6sp</dimen>
+    <!--.tile.tile-super .tile-inner {-->
+    <!--color: #f9f6f2;-->
+    <!--background: #3c3a32;-->
+
+</resources>
