@@ -20,6 +20,7 @@ import android.widget.AbsoluteLayout;
 import android.widget.Button;
 
 import com.topixoft.glass2048.app.glass.GlassGestureDetector;
+import com.topixoft.glass2048.app.speech.SphinxSpeechRecognition;
 
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class GameActivity extends Activity {
     private GestureDetector gestureDetector;
 
     private GlassGestureDetector glassGestureDetector;
+
+    private SphinxSpeechRecognition speechRecognition;
 
     public GameActivity() {
     }
@@ -73,6 +76,8 @@ public class GameActivity extends Activity {
         }
 
         gestureDetector = new GestureDetector(this, new FlingGestureListener());
+
+        speechRecognition = new SphinxSpeechRecognition(getApplicationContext(), inputManager);
     }
 
     @Override
@@ -216,6 +221,18 @@ public class GameActivity extends Activity {
                 new GameManager(GRID_SIZE, inputManager, new Actuator(GameActivity.this, size), new StorageManager());
             }
         });
+
+        if (speechRecognition != null) {
+            speechRecognition.onResume();
+        }
     }
 
+    @Override
+    protected void onPause() {
+        if (speechRecognition != null) {
+            speechRecognition.onPause();
+        }
+
+        super.onPause();
+    }
 }
