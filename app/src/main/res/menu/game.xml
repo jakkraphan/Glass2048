@@ -7,7 +7,7 @@
         android:orderInCategory="100"
         android:showAsAction="never" />
 
-    <item android:id="@+id/action_keep_going"
+    <item android:id="@+id/action_keep_playing"
         android:title="@string/action_keep_going"
         android:orderInCategory="100"
         android:showAsAction="never" />

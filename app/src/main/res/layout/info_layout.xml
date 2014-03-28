@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Click on touchpad with both fingers to access the menu"
+                android:text="Tap with two fingers to access the menu"
                 android:id="@+id/textViewGlassHelp"
                 android:layout_gravity="center"
                 android:textColor="@color/tile_color"

@@ -2,10 +2,7 @@ package com.topixoft.glass2048.app;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +15,6 @@ import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AbsoluteLayout;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -32,7 +27,15 @@ public class Actuator {
 
     private final Context context;
     private Resources resources;
+
+    private final Runnable openMenuRunnable;
+
     private final ViewGroup tileContainer;
+
+    private final View messageContainer;
+    private final TextView textViewEndGame;
+    private final View buttonKeepPlaying;
+
     private final TextView textViewScore;
     private final TextView textViewBestScore;
     private final float cellSize;
@@ -41,7 +44,7 @@ public class Actuator {
     private Map<Integer, Integer> textColors = new HashMap<Integer, Integer>();
     private Map<Integer, Integer> backgroundColors = new HashMap<Integer, Integer>();
 
-    public Actuator(GameActivity gameActivity, float cellSize) {
+    public Actuator(final GameActivity gameActivity, float cellSize) {
         context = (Context) gameActivity;
         resources = context.getResources();
 
@@ -49,8 +52,19 @@ public class Actuator {
 
         tileContainer = (ViewGroup) gameActivity.findViewById(R.id.tileContainer);
 
+        messageContainer = gameActivity.findViewById(R.id.gameMessageContainer);
+        textViewEndGame = (TextView) gameActivity.findViewById(R.id.textViewEndGame);
+        buttonKeepPlaying = gameActivity.findViewById(R.id.buttonKeepPlaying);
+
         textViewScore = (TextView) gameActivity.findViewById(R.id.textViewScore);
         textViewBestScore = (TextView) gameActivity.findViewById(R.id.textViewBestScore);
+
+        openMenuRunnable = new Runnable() {
+            @Override
+            public void run() {
+                gameActivity.openOptionsMenu();;
+            }
+        };
 
         this.cellSize = cellSize;
     }
@@ -100,8 +114,9 @@ public class Actuator {
         }
     }
 
+    // Continues the game (both restart and keep playing)
     public void continueGame() {
-
+        this.clearMessage();
     }
 
     private void clearContainer(ViewGroup tileContainer) {
@@ -135,8 +150,6 @@ public class Actuator {
         textView.setBackgroundDrawable(shapeDrawable);
 
         textView.setText(Integer.toString(tile.getValue()));
-
-
 
         int animDurationCoef = 1;
         Interpolator popInterpolator = new OvershootInterpolator();
@@ -205,13 +218,29 @@ public class Actuator {
         String type    = won ? "game-won" : "game-over";
         String message = won ? "You win!" : "Game over!";
 
-//        this.messageContainer.classList.add(type);
-//        this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+        this.messageContainer.setVisibility(View.VISIBLE);
+        this.buttonKeepPlaying.setVisibility(won ? View.VISIBLE : View.GONE);
+        this.textViewEndGame.setText(message);
+
+        AlphaAnimation anim = new AlphaAnimation(0f, 1f);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(800);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) { }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                openMenuRunnable.run();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) { }
+        });
+        this.messageContainer.startAnimation(anim);
     }
 
     private void clearMessage() {
-//        // IE only takes one value to remove at a time.
-//        this.messageContainer.classList.remove("game-won");
-//        this.messageContainer.classList.remove("game-over");
+        this.messageContainer.setVisibility(View.GONE);
     }
 }

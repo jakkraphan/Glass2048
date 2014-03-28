@@ -2,6 +2,7 @@ package com.topixoft.glass2048.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -58,6 +59,8 @@ public class GameActivity extends Activity {
         addCells();
 
         if (RUNNING_ON_GLASS) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
             glassGestureDetector = new GlassGestureDetector(this, inputManager);
 
             findViewById(R.id.textViewGlassHelp).setVisibility(View.VISIBLE);
@@ -69,6 +72,24 @@ public class GameActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     inputManager.restart();
+                }
+            });
+
+            findViewById(R.id.layoutEndGameButtons).setVisibility(View.VISIBLE);
+
+            Button buttonTryAgain = (Button) findViewById(R.id.buttonTryAgain);
+            buttonTryAgain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    inputManager.restart();
+                }
+            });
+
+            Button buttonKeepPlaying = (Button) findViewById(R.id.buttonKeepPlaying);
+            buttonKeepPlaying.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    inputManager.keepPlaying();
                 }
             });
         }
@@ -88,11 +109,31 @@ public class GameActivity extends Activity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (!RUNNING_ON_GLASS) {
+            return false;
+        }
+
+        boolean over = findViewById(R.id.gameMessageContainer).getVisibility() == View.VISIBLE;
+        boolean keepPlaying = findViewById(R.id.buttonKeepPlaying).getVisibility() == View.VISIBLE;
+
+        menu.findItem(R.id.action_new_game).setVisible(!over);
+        menu.findItem(R.id.action_try_again).setVisible(over);
+        menu.findItem(R.id.action_keep_playing).setVisible(over && keepPlaying);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection.
         switch (item.getItemId()) {
             case R.id.action_new_game:
+            case R.id.action_try_again:
                 inputManager.restart();
+                return true;
+            case R.id.action_keep_playing:
+                inputManager.keepPlaying();
                 return true;
             case R.id.action_exit_game:
                 finish();

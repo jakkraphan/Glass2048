@@ -18,4 +18,62 @@
         android:id="@+id/tileContainer">
     </AbsoluteLayout>
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#BAEEE4DA"
+        android:visibility="gone"
+        android:id="@+id/gameMessageContainer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewEndGame"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/tile_color"
+            android:textStyle="bold"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutEndGameButtons"
+            android:layout_marginBottom="55dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible">
+            <!--android:visibility="visible">-->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keep going"
+                android:id="@+id/buttonKeepPlaying"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/tile_super_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try again"
+                android:id="@+id/buttonTryAgain"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/tile_super_color"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="10dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </FrameLayout>

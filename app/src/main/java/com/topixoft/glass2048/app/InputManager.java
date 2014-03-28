@@ -31,6 +31,12 @@ public class InputManager {
         gameManagerInput.move(GameManager.Direction.Left);
     }
 
-    public void restart() {gameManagerInput.restart(); }
+    public void restart() {
+        gameManagerInput.restart();
+    }
+
+    public void keepPlaying() {
+        gameManagerInput.keepPlaying();
+    }
 
 }

@@ -6,9 +6,9 @@
 
     <string name="title_activity_game">2048</string>
 
-    <string name="action_new_game">New Game</string>
+    <string name="action_new_game">New game</string>
     <string name="action_keep_going">Keep going</string>
     <string name="action_try_again">Try again</string>
-    <string name="action_exit_game">Exit Game</string>
+    <string name="action_exit_game">Exit game</string>
 
 </resources>

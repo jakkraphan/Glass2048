@@ -113,6 +113,7 @@ public class GameManager implements GameManagerInput {
 //        this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), 256));
 //        this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), 512));
 //        this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), 1024));
+//        this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), 1024));
     }
 
     // Adds a tile in a random position
