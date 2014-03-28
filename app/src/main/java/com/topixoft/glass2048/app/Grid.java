@@ -8,14 +8,14 @@ import java.util.List;
  */
 public class Grid {
 
-    private final int size;
+    public final int size;
     public final Tile[][] cells;
 
     public Grid(int size) {
         this(size, null);
     }
 
-    public Grid(int size, Object previousState) {
+    public Grid(int size, String previousState) {
         this.size = size;
         this.cells = previousState != null ? this.fromState(previousState) : this.empty();
     }
@@ -27,9 +27,23 @@ public class Grid {
         return cells;
     }
 
-    private Tile[][] fromState(Object state) {
-        // TODO: implement fromState
-        return null;
+    private Tile[][] fromState(String state) {
+        String[] serializedStrings = state.split(",");
+        Tile[][] cells = new Tile[size][size];
+
+        for (int x = 0; x < this.size; x++) {
+            for (int y = 0; y < this.size; y++) {
+                int idx = x * this.size + y;
+                if (serializedStrings.length > idx) {
+                    String cellStr = serializedStrings[idx];
+                    if (cellStr.length() > 0) {
+                        cells[x][y] = new Tile(new Cell(x, y), Integer.parseInt(cellStr));
+                    }
+                }
+            }
+        }
+
+        return cells;
     }
 
     // Find the first available random position
@@ -102,7 +116,20 @@ public class Grid {
                 position.y >= 0 && position.y < this.size;
     }
 
-    private void serialize() {
-        // TODO: implement serialize
+    public String serialize() {
+
+        StringBuffer cellState = new StringBuffer();
+
+        for (int x = 0; x < this.size; x++) {
+            for (int y = 0; y < this.size; y++) {
+                if (x + y > 0) {
+                    cellState.append(',');
+                }
+                cellState.append(this.cells[x][y] != null ? this.cells[x][y].serialize() : "");
+            }
+        }
+
+        return "grid.size=" + this.size + "\n" +
+                "grid.cells=" + cellState;
     }
 }

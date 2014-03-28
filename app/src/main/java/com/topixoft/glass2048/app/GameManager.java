@@ -58,17 +58,31 @@ public class GameManager implements GameManagerInput {
 
     // Set up the game
     private void setup() {
-        Object previousState = this.storageManager.getGameState();
+        String[] previousState = this.storageManager.getGameState();
 
         // Reload the game from a previous game if present
         if (previousState != null) {
-            // TODO: implement previousState
-//            this.grid        = new Grid(previousState.grid.size,
-//                                        previousState.grid.cells); // Reload grid
-//            this.score       = previousState.score;
-//            this.over        = previousState.over;
-//            this.won         = previousState.won;
-//            this.keepPlaying = previousState.keepPlaying;
+
+            int gridSize = -1;
+            String gridCells = null;
+            for (String state : previousState) {
+                String[] stateSplit = state.split("=", 2);
+                if (stateSplit[0].equals("grid.size")) {
+                    gridSize = Integer.parseInt(stateSplit[1]);
+                } else if (stateSplit[0].equals("grid.cells")) {
+                    gridCells = stateSplit[1];
+                } else if (stateSplit[0].equals("score")) {
+                    this.score = Integer.parseInt(stateSplit[1]);
+                } else if (stateSplit[0].equals("over")) {
+                    this.over = Boolean.parseBoolean(stateSplit[1]);
+                } else if (stateSplit[0].equals("won")) {
+                    this.won = Boolean.parseBoolean(stateSplit[1]);
+                } else if (stateSplit[0].equals("keepPlaying")) {
+                    this.keepPlaying = Boolean.parseBoolean(stateSplit[1]);
+                }
+            }
+
+            this.grid = new Grid(gridSize, gridCells); // Reload grid
         } else {
             this.grid        = new Grid(this.size);
             this.score       = 0;
@@ -135,16 +149,13 @@ public class GameManager implements GameManagerInput {
     }
 
     // Represent the current game as an object
-    private Object serialize() {
-        // TODO: implement serialize
-        return null;
-//        return {
-//                grid:        this.grid.serialize(),
-//                score:       this.score,
-//                over:        this.over,
-//                won:         this.won,
-//                keepPlaying: this.keepPlaying
-//        };
+    private String[] serialize() {
+        String state = "score=" + this.score + "\n" +
+                "over=" + this.over + "\n" +
+                "won=" + this.won + "\n" +
+                "keepPlaying=" + this.keepPlaying + "\n" +
+                this.grid.serialize();
+        return state.split("\\n");
     }
 
     // Save all tile positions and remove merger info

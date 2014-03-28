@@ -218,7 +218,7 @@ public class GameActivity extends Activity {
 
                 squareView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
 
-                new GameManager(GRID_SIZE, inputManager, new Actuator(GameActivity.this, size), new StorageManager());
+                new GameManager(GRID_SIZE, inputManager, new Actuator(GameActivity.this, size), new StorageManager(GameActivity.this.getPreferences(MODE_PRIVATE)));
             }
         });
     }

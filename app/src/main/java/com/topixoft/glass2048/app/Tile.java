@@ -26,8 +26,8 @@ public class Tile {
         this.position = position;
     }
 
-    private void serialize() {
-        // TODO: implement serialize
+    public String serialize() {
+        return Integer.toString(value);
     }
 
     public Cell getPosition() {
