@@ -106,10 +106,10 @@ public class Actuator {
         this.updateBestScore(bestScore);
 
         if (terminated) {
-            if (over) {
-                this.message(false); // You lose
-            } else if (won) {
-                this.message(true); // You win!
+            if (won) {
+                this.message(true, !over); // You win!
+            } else if (over) {
+                this.message(false, false); // You lose
             }
         }
     }
@@ -214,12 +214,11 @@ public class Actuator {
         textViewBestScore.setText(Integer.toString(bestScore));
     }
 
-    private void message(boolean won) {
-        String type    = won ? "game-won" : "game-over";
+    private void message(boolean won, boolean canContinue) {
         String message = won ? "You win!" : "Game over!";
 
         this.messageContainer.setVisibility(View.VISIBLE);
-        this.buttonKeepPlaying.setVisibility(won ? View.VISIBLE : View.GONE);
+        this.buttonKeepPlaying.setVisibility(canContinue ? View.VISIBLE : View.GONE);
         this.textViewEndGame.setText(message);
 
         AlphaAnimation anim = new AlphaAnimation(0f, 1f);
