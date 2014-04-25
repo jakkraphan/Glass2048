@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">2048</string>
-    <string name="play_a_game">play a game</string>
 
     <string name="title_activity_game">2048</string>
 

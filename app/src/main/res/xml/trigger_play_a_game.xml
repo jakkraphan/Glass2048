@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<trigger keyword="@string/play_a_game" />
+<trigger command="PLAY_A_GAME" />
